@@ -1,0 +1,23 @@
+#signup{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40%;
+    margin-right: 40%;
+    border: 3px solid rgb(144, 123, 16); 
+    height: 270px;
+    border-radius: 5px;
+}
+#snav{
+    height:150px;
+    background-color: rgb(137, 191, 11);
+    color: whitesmoke;
+    font-size: 60px;
+
+}
+#header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
