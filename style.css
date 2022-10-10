@@ -21,3 +21,31 @@
     align-items: center;
     margin-top: 3rem;
 }
+.label{
+    margin-top: 1rem;
+}
+.loginForm{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40%;
+    margin-right: 40%;
+    border: 3px solid rgb(28, 119, 81); 
+    height: 260px;
+    border-radius: 5px;
+    width: 350px;
+}
+#loginbtn{
+    background-color:  rgb(28, 119, 81);
+    color: white;
+    margin: 1rem 20%;
+    cursor: pointer;
+}
+#footnav{
+    height:75px;
+    background-color: rgb(28, 119, 81); 
+    margin-top: 22.5rem;
+    color: white;
+    display: flex;
+    font-size: 20px;
+}

@@ -5,13 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="signup.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
     <title>Sign Up</title>
 </head>
 <nav id="snav">
     <h1 id="header">Lets Chat</h1>
     </nav>
 <body>
-    <form action="onclick" id="signup">
+    <form class="loginForm" onsubmit="createUser(event)">
         <label for="name">Enter the user name</label>
         <input type="text"id="name">
         <label for="email">Enter the email ID</label>
@@ -21,6 +23,11 @@
         <label for="password">Enter the Password</label>
         <input type="password" id="password">
         <button>Submit</button>
+        <a href="./login.html" class="anchor">Already a User-Login</a>
     </form>
+  
 </body>
+<footer id="footnav">
+    <h4>© 2022 Lets Chat | All Rights Reserved</h4>
+    </footer>
 </html>
