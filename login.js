@@ -12,6 +12,7 @@ let logindetails = {
 const data=await axios.post('http://localhost:3000/login',logindetails)
 
    if(data.status==200){
+    localStorage.setItem('token',data.data.token)
     alert(data.data.message)
     
    }
