@@ -1,6 +1,6 @@
-function createUser(event) {
+async function  createUser(event) {
     event.preventDefault()
-
+try{
     let name = document.getElementById('name').value
     let email = document.getElementById('email').value
     let password = document.getElementById('password').value
@@ -11,17 +11,16 @@ function createUser(event) {
         
         password:password
     }
-axios.post('http://localhost:3000/signup',userDetails)
-.then(result=>{
-   if(result.status ===201) {
-    console.log(result)
-   window.location.href='./login.html'
-   console.log('done')
-   } else {
-    throw new Error ('Failed to Login')
-   }
-})
-.catch(err=>{
-    alert(err)
-})
+    axios.post('http://localhost:3000/signup', userDetails)
+    .then((res)=>{
+    
+
+        alert(res.data.message);
+
+    }).catch(err=>console.log(err))
+}
+catch(err){
+    console.log(err)
+}
+
 }

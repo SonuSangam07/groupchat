@@ -1,19 +1,25 @@
 const User = require('../models/user.js')
 const bcrypt=require('bcrypt');
-
+const saltround=10;
 exports.signup = async(req,res,next)=>{
-    try{
-    const {name,email,password} = req.body
- 
-    const saltround=10;
-bcrypt.hash(password,saltround,async(err,hash)=>{
-    await User.create({name,email, password:hash })
-    res.status(201).json({message:'User Successfully Created'})
-    })}
-    catch(err)
-    {
-        res.status(500).json({message:'Something went wrong'})
-}
+   
+    let userDetails = req.body
+
+    let existingUser = await User.findAll({where:{email: userDetails.email}})
+    
+
+    if(existingUser.length === 0){
+        const hashedPassword =  bcrypt.hashSync(userDetails.password, saltround);
+         await User.create({
+            name: userDetails.name,
+            email: userDetails.email,
+            password: hashedPassword
+        })
+        res.json({message: "User created"})
+    }else{
+        
+        res.json({ message: "user already exists,please login"})
+    }
 }
 
 
