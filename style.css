@@ -49,3 +49,60 @@
     display: flex;
     font-size: 20px;
 }
+#msgform{
+    display: flex;
+    flex-direction: row;
+   margin-left: 35%;
+
+
+}
+.msgs{
+    display: flex;
+    background-color: lightgray;
+    width: auto;
+}
+.chatele{
+    margin-left: 2rem;
+    width: 300px;
+}
+#chatlabel{
+    font-size: 20px;
+}
+#sendbtn{
+    margin-left: 1rem;
+    width: 60px;
+    cursor: pointer;
+}
+#inbox{
+    margin-left: 35%;
+    margin-top: 2rem;
+  
+  }
+  .info{
+      display: flex;
+  
+  }
+  .allmsgs{
+    margin-top: 1rem;
+    margin: 1rem;
+}
+  #chathead{
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    margin: 2rem 2rem;
+}
+
+.chats{
+    margin-left: 25%;
+    margin-right: 25%;
+    justify-content: center;
+    text-align: left;
+}
+
+.msgs{
+    display: flex;
+
+    background-color: lightgray;
+    width: auto;
+}

@@ -11,10 +11,17 @@ const sequelize = require('./util/database');
 app.use(bodyParser.json());
 const userRoute = require('./routes/user');
 
-const Users = require('./models/user')
+const User = require('./models/user')
+const Message = require('./models/message')
 app.use(userRoute)
+const messageRoute = require('./routes/message')
+app.use(messageRoute)
 
-sequelize.sync()
+User.hasMany(Message)
+Message.belongsTo(User)
+sequelize.sync(
+    
+)
 .then(user=>{
     app.listen(3000)
 })

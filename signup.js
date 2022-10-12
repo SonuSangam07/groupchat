@@ -16,6 +16,7 @@ try{
     
 
         alert(res.data.message);
+        window.location.href='./login.html'
 
     }).catch(err=>console.log(err))
 }
