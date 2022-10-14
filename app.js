@@ -20,7 +20,7 @@ app.use(messageRoute)
 User.hasMany(Message)
 Message.belongsTo(User)
 sequelize.sync(
-    
+  
 )
 .then(user=>{
     app.listen(3000)
