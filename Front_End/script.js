@@ -163,6 +163,34 @@ function sendmsg(grpid) {
       console.log(response);
 
       if (response.status == 201) {
+        window.addEventListener("DOMContentLoaded", () => {
+          let token = localStorage.getItem("token");
+          user = JSON.parse(localStorage.getItem("user"));
+        
+          // console.log(user);
+          axios
+            .get("http://localhost:3000/getgroups", {
+              headers: { Authorization: token },
+            })
+            .then((response) => {
+              console.log(response);
+              localStorage.setItem("usergroup", JSON.stringify(response.data.data));
+              let groupdiv = document.getElementById("mygroups");
+              
+              let content = "";
+              let msgcontent = "";
+              for (let i = 0; i < response.data.data.length; i++) {
+                let grpname = response.data.data[i].group.name;
+                let grpid = response.data.data[i].group.id;
+                content += `<div class="grpdetail"><span class="grpele">${grpname}</span><button type="submit" onclick="jumpintogroup(${grpid})" class="grpele btn" id="jumpbtn">Join the Group</button><div><label>Enter your message:   
+                </label><input type="text" id=${grpid}><button onclick="sendmsg(${grpid})" id="sendbtn">Send</button></div></div>`;
+              }
+              
+              groupdiv.innerHTML = content;
+              
+            })
+            .catch((err) => console.log(err));
+        });
         alert("Message Sent");
         retrivemsg(groupid);
       } else {
@@ -275,6 +303,34 @@ function adduser(groupid) {
     .then((response) => {
       if (response.status == 201) {
         console.log(response);
+        window.addEventListener("DOMContentLoaded", () => {
+          let token = localStorage.getItem("token");
+          user = JSON.parse(localStorage.getItem("user"));
+        
+          // console.log(user);
+          axios
+            .get("http://localhost:3000/getgroups", {
+              headers: { Authorization: token },
+            })
+            .then((response) => {
+              console.log(response);
+              localStorage.setItem("usergroup", JSON.stringify(response.data.data));
+              let groupdiv = document.getElementById("mygroups");
+              
+              let content = "";
+              let msgcontent = "";
+              for (let i = 0; i < response.data.data.length; i++) {
+                let grpname = response.data.data[i].group.name;
+                let grpid = response.data.data[i].group.id;
+                content += `<div class="grpdetail"><span class="grpele">${grpname}</span><button type="submit" onclick="jumpintogroup(${grpid})" class="grpele btn" id="jumpbtn">Join the Group</button><div><label>Enter your message:   
+                </label><input type="text" id=${grpid}><button onclick="sendmsg(${grpid})" id="sendbtn">Send</button></div></div>`;
+              }
+              
+              groupdiv.innerHTML = content;
+              
+            })
+            .catch((err) => console.log(err));
+        });
         alert("User Added");
         console.log(response);
       } else {
@@ -292,6 +348,7 @@ function removeuser(groupid, userid) {
     .then((response) => {
       if (response.status == 200) {
         console.log(response);
+       
         alert("User Removed");
       } else {
         throw new Error();
@@ -305,6 +362,7 @@ function removeuser(groupid, userid) {
 // make admin
 
 function makeadmin(groupid, userid) {
+  console.log("aaaaaaaa",groupid,userid);
   axios
     .post(`http://localhost:3000/makeadmin/${groupid}`, { userid: userid })
     .then((response) => {
